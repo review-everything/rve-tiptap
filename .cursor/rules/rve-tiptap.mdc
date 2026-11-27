@@ -1,0 +1,22 @@
+---
+description: Architecture of @rve/tiptap. Static HTML from TipTap JSON, a separate editor schema, installed from GitHub.
+alwaysApply: true
+---
+
+# @rve/tiptap
+
+Shared library for admin-web and public-web. It has no app to run.
+
+## Read and edit
+
+- The `@rve/tiptap` entry is read-only: `readContent` and `mountReadOnlyContent`. TipTap JSON becomes static HTML. The read path does not import `Editor` or ProseMirror.
+- The `@rve/tiptap/editor` entry exports `Editor` and `contentExtensions()` for the admin-web form. public-web does not import this entry and does not install `@tiptap/*`.
+- Text is written with text nodes. A link becomes an `a` element only when the address is `http` or `https`.
+- CSS is `src/styles/content.css`, class `rve-content`.
+- `src/extensions/review-box.ts` is not registered. Do not add it to the schema unless asked.
+
+## Package
+
+- Do not commit `dist`. `prepare` runs `tsc`.
+- Both apps install `github:review-everything/rve-tiptap#develop`.
+- Each app's lockfile pins that commit. After a new commit lands on `develop`, run `npm update @rve/tiptap` in each app to fetch it and build again.
