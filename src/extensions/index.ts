@@ -2,6 +2,7 @@ import { Editor, Extension, type Extensions } from '@tiptap/core';
 import { BulletList, OrderedList } from '@tiptap/extension-list';
 import { Placeholder } from '@tiptap/extension-placeholder';
 import { TextAlign } from '@tiptap/extension-text-align';
+import { FontFamily, FontSize, TextStyle } from '@tiptap/extension-text-style';
 import { StarterKit } from '@tiptap/starter-kit';
 
 const MAX_LIST_LEVEL = 3;
@@ -25,6 +26,9 @@ export function contentExtensions(): Extensions {
         },
       },
     }),
+    TextStyle,
+    FontFamily,
+    FontSize,
     TextAlign.configure({
       types: ['heading', 'paragraph'],
     }),

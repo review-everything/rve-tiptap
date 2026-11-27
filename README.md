@@ -50,6 +50,8 @@ import { Editor, contentExtensions } from '@rve/tiptap/editor';
 
 `contentExtensions()` is the composing schema. It includes the placeholder "Nhập nội dung". List indent stops at 3 levels. Tab and Shift-Tab change the indent while editing.
 
+Font family and font size are optional `textStyle` marks. `contentFonts` and `contentFontSizes`, exported from `@rve/tiptap/editor`, are the only values the read path writes. Unmarked text uses Roboto at 16px from `content.css`.
+
 ## Not implemented
 
 `src/extensions/review-box.ts` is reserved for a custom review box node. It is not registered.

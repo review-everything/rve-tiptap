@@ -1,3 +1,5 @@
+import { contentFontFamily, contentFontSize } from '../fonts.js';
+
 const contentClass = 'rve-content';
 const maxListIndent = 2;
 
@@ -156,9 +158,30 @@ function renderMark(document: Document, mark: ContentMark, inner: Node): HTMLEle
       return wrap(document, 'code', inner);
     case 'link':
       return renderLink(document, mark, inner);
+    case 'textStyle':
+      return renderTextStyle(document, mark, inner);
     default:
       return null;
   }
+}
+
+function renderTextStyle(document: Document, mark: ContentMark, inner: Node): HTMLElement | null {
+  const family = contentFontFamily(mark.attrs?.['fontFamily']);
+  const size = contentFontSize(mark.attrs?.['fontSize']);
+  const declarations: string[] = [];
+  if (family) {
+    declarations.push(`font-family: ${family}`);
+  }
+  if (size) {
+    declarations.push(`font-size: ${size}`);
+  }
+  if (declarations.length === 0) {
+    return null;
+  }
+  const span = document.createElement('span');
+  span.setAttribute('style', declarations.join('; '));
+  span.append(inner);
+  return span;
 }
 
 function renderLink(document: Document, mark: ContentMark, inner: Node): HTMLAnchorElement | null {
