@@ -10,7 +10,7 @@ const MAX_LIST_LEVEL = 3;
 export function contentExtensions(): Extensions {
   return [
     StarterKit.configure({
-      heading: { levels: [2, 3] },
+      heading: { levels: [1, 2, 3] },
       bulletList: false,
       orderedList: false,
       dropcursor: { color: 'var(--ink)', width: 1 },

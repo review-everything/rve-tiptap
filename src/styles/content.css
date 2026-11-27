@@ -31,6 +31,7 @@
 }
 
 .rve-content.ProseMirror p,
+.rve-content.ProseMirror h1,
 .rve-content.ProseMirror h2,
 .rve-content.ProseMirror h3,
 .rve-content.ProseMirror ul,
@@ -38,6 +39,7 @@
 .rve-content.ProseMirror blockquote,
 .rve-content.ProseMirror pre,
 .rve-content .ProseMirror p,
+.rve-content .ProseMirror h1,
 .rve-content .ProseMirror h2,
 .rve-content .ProseMirror h3,
 .rve-content .ProseMirror ul,
@@ -45,6 +47,7 @@
 .rve-content .ProseMirror blockquote,
 .rve-content .ProseMirror pre,
 .rve-content p,
+.rve-content h1,
 .rve-content h2,
 .rve-content h3,
 .rve-content ul,
@@ -52,6 +55,13 @@
 .rve-content blockquote,
 .rve-content pre {
   margin: 0;
+}
+
+.rve-content.ProseMirror h1,
+.rve-content .ProseMirror h1,
+.rve-content h1 {
+  font-size: 2rem;
+  line-height: 1.25;
 }
 
 .rve-content.ProseMirror h2,

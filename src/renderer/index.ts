@@ -235,8 +235,11 @@ function languageClass(attrs: Record<string, unknown> | undefined): string | nul
   return `language-${language}`;
 }
 
-function headingTag(attrs: Record<string, unknown> | undefined): 'h2' | 'h3' | null {
+function headingTag(attrs: Record<string, unknown> | undefined): 'h1' | 'h2' | 'h3' | null {
   const level = attrs?.['level'];
+  if (level === 1) {
+    return 'h1';
+  }
   if (level === 2) {
     return 'h2';
   }
